@@ -782,7 +782,11 @@ def evaluate_FastGAN(net_g, net_d, dataloader, nz, device, samples_z=None, perce
 
         # Create samples
         if samples_z is not None:
-            samples = net_g(samples_z)[0]
+            if cond:
+                y = torch.randint(0, 4, (samples_z.size(0), 1))
+                samples = net_g(samples_z, y)[0]
+            else:
+                samples = net_g(samples_z)[0]
             samples = F.interpolate(samples, 256).cpu()
             samples = vutils.make_grid(samples, nrow=6, padding=4, normalize=True)
 
