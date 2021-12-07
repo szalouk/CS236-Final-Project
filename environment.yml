@@ -1,0 +1,23 @@
+name: cs236-dp
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - tqdm
+  # - cudatoolkit=11.1
+  - torchvision
+  - pytorch
+  - tensorboard
+  - scipy
+  - torchmetrics
+  - pip:
+    - torch-fidelity
+    - scikit-image==0.18.2
+    - ipdb==0.13.4
+    - pandas==1.2.1
+    - lmdb==1.0.0
+    - opencv-python==4.5.1.48
+    - easing-functions==1.0.4
+
